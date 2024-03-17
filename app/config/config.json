@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "db_neo_payment",
+    "host": "services_mysql8",
+    "dialect": "mysql",
+    "tsConfig": "./tsconfig.json",
+    "migrationStorageTableName": "sequelize_meta",
+    "define": {
+      "timestamps": true
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "db_neo_payment",
+    "host": "services_mysql8",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "db_neo_payment",
+    "host": "services_mysql8",
+    "dialect": "mysql"
+  }
+}
