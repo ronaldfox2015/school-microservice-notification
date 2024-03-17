@@ -1,0 +1,3 @@
+import { IdType } from './';
+export declare class IdTypeImp extends IdType {
+}

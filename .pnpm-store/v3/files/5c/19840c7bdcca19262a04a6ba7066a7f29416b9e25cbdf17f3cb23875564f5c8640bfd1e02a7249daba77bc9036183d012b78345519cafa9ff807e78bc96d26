@@ -1,0 +1,10 @@
+import { AbstractType, ValueTypeNullable } from '../abstract-type';
+type BooleanTypes = boolean | null;
+export declare abstract class BooleanType<TT extends BooleanTypes = ValueTypeNullable<boolean>> extends AbstractType<TT> {
+    get toString(): string;
+    protected filter(value: any): TT;
+}
+export declare abstract class BooleanRequiredType extends BooleanType<boolean> {
+    protected filter(value: any): boolean;
+}
+export {};

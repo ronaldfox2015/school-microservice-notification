@@ -1,0 +1,7 @@
+import { AbstractType, ValueTypeNullable } from '../abstract-type';
+export declare abstract class UuidType<TT = ValueTypeNullable<string>> extends AbstractType<TT> {
+    static random(): string;
+    static fromValue(value: string, namespace?: string): string;
+    protected filter(value: any): TT;
+    get toString(): string;
+}

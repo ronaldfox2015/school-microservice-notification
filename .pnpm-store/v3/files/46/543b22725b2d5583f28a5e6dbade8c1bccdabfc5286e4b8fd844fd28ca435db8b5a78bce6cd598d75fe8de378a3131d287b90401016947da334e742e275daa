@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UuidTypeImp = void 0;
+const _1 = require("./");
+class UuidTypeImp extends _1.UuidType {
+}
+exports.UuidTypeImp = UuidTypeImp;
+//# sourceMappingURL=uuid-type.imp.js.map

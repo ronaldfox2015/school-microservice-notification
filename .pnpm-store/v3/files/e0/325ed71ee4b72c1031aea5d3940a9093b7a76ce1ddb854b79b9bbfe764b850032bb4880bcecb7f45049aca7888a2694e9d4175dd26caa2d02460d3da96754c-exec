@@ -1,0 +1,17 @@
+#!/bin/sh
+basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
+
+case `uname` in
+    *CYGWIN*) basedir=`cygpath -w "$basedir"`;;
+esac
+
+if [ -z "$NODE_PATH" ]; then
+  export NODE_PATH="/app/node_modules/.pnpm/@compodoc+compodoc@1.1.23_typescript@5.4.2/node_modules/@compodoc/compodoc/bin/node_modules:/app/node_modules/.pnpm/@compodoc+compodoc@1.1.23_typescript@5.4.2/node_modules/@compodoc/compodoc/node_modules:/app/node_modules/.pnpm/@compodoc+compodoc@1.1.23_typescript@5.4.2/node_modules/@compodoc/node_modules:/app/node_modules/.pnpm/@compodoc+compodoc@1.1.23_typescript@5.4.2/node_modules:/app/node_modules/.pnpm/node_modules"
+else
+  export NODE_PATH="/app/node_modules/.pnpm/@compodoc+compodoc@1.1.23_typescript@5.4.2/node_modules/@compodoc/compodoc/bin/node_modules:/app/node_modules/.pnpm/@compodoc+compodoc@1.1.23_typescript@5.4.2/node_modules/@compodoc/compodoc/node_modules:/app/node_modules/.pnpm/@compodoc+compodoc@1.1.23_typescript@5.4.2/node_modules/@compodoc/node_modules:/app/node_modules/.pnpm/@compodoc+compodoc@1.1.23_typescript@5.4.2/node_modules:/app/node_modules/.pnpm/node_modules:$NODE_PATH"
+fi
+if [ -x "$basedir/node" ]; then
+  exec "$basedir/node"  "$basedir/../../bin/index-cli.js" "$@"
+else
+  exec node  "$basedir/../../bin/index-cli.js" "$@"
+fi

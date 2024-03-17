@@ -1,0 +1,13 @@
+import { AbstractType, ValueTypeNullable } from '../abstract-type';
+export interface StringIsLengthValidator {
+    min?: number;
+    max?: number;
+    exactly?: number;
+}
+export declare abstract class StringType extends AbstractType<ValueTypeNullable<string>> {
+    get isEmpty(): boolean;
+    get length(): number;
+    isLength(param: StringIsLengthValidator): boolean;
+    get toString(): string;
+    protected filter(value: any): string | null;
+}

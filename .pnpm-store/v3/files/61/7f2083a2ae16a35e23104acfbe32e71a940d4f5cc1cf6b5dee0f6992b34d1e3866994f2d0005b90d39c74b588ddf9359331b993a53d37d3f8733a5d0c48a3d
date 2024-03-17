@@ -1,0 +1,5 @@
+import { AbstractType, ValueTypeNullable } from '../abstract-type';
+export declare abstract class NumberType extends AbstractType<ValueTypeNullable<number>> {
+    get toString(): string;
+    protected filter(value: any): number | null;
+}

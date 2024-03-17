@@ -1,0 +1,6 @@
+import { ValidatorConstraintInterface, ValidationArguments } from 'class-validator';
+export declare class DomainValidator implements ValidatorConstraintInterface {
+    private static factoryType;
+    validate(value: any, args: ValidationArguments): Promise<boolean> | boolean;
+    defaultMessage(args: ValidationArguments): string;
+}

@@ -1,0 +1,15 @@
+import { ValidatorInterface } from '../../validator';
+import { StringTypeImp } from '../string';
+export declare class OrderTypeImp implements ValidatorInterface {
+    private _field;
+    private _direction;
+    constructor(_field: StringTypeImp, _direction: StringTypeImp);
+    static create(field?: string | null, direction?: string | null): OrderTypeImp;
+    static empty(): OrderTypeImp;
+    get field(): StringTypeImp;
+    get direction(): StringTypeImp;
+    isEmpty(): boolean;
+    private validDirection;
+    isValid(): boolean;
+    validatorMessage(): string;
+}

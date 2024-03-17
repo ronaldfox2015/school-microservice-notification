@@ -1,0 +1,4 @@
+import { UuidType } from '../uuid/';
+export declare abstract class IdType extends UuidType<string> {
+    protected filter(value: any): string;
+}

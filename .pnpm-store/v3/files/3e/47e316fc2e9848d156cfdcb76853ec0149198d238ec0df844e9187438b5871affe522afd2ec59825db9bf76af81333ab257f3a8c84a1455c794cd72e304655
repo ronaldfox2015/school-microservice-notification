@@ -1,0 +1,1 @@
+{"version":3,"file":"id-type.js","sourceRoot":"","sources":["../../../src/type/id/id-type.ts"],"names":[],"mappings":";;;AAAA,mCAAoC;AAEpC,MAAsB,MAAO,SAAQ,eAAgB;IACzC,MAAM,CAAC,KAAU;QACzB,IAAI,KAAK,KAAK,IAAI,EAAE;YAClB,MAAM,IAAI,KAAK,CAAC,cAAc,CAAC,CAAC;SACjC;QACD,OAAO,KAAK,CAAC,MAAM,CAAC,KAAK,CAAC,CAAC;IAC7B,CAAC;CACF;AAPD,wBAOC"}

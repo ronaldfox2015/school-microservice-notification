@@ -1,0 +1,51 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var DomainValidator_1;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DomainValidator = void 0;
+const class_validator_1 = require("class-validator");
+const type_1 = require("../type");
+let DomainValidator = DomainValidator_1 = class DomainValidator {
+    static factoryType(value, objClass) {
+        let vo;
+        if (objClass.name === type_1.PaginatorTypeImp.name) {
+            vo = type_1.PaginatorTypeImp.create(value === null || value === void 0 ? void 0 : value.page, value === null || value === void 0 ? void 0 : value.perPage);
+        }
+        else if (objClass.name === type_1.OrderTypeImp.name) {
+            vo = type_1.OrderTypeImp.create(value === null || value === void 0 ? void 0 : value.field, value === null || value === void 0 ? void 0 : value.direction);
+        }
+        else {
+            vo = new objClass(value);
+        }
+        return vo;
+    }
+    validate(value, args) {
+        try {
+            const vo = DomainValidator_1.factoryType(value, args.constraints[0]);
+            return vo.isValid();
+        }
+        catch (e) {
+            return false;
+        }
+    }
+    defaultMessage(args) {
+        try {
+            const vo = DomainValidator_1.factoryType(args.value, args.constraints[0]);
+            vo.isValid();
+            return `${args.property}: ${vo.validatorMessage()}`;
+        }
+        catch (e) {
+            return `${args.property}: ${e.message}`;
+        }
+    }
+};
+DomainValidator = DomainValidator_1 = __decorate([
+    (0, class_validator_1.ValidatorConstraint)({ name: 'domainValidator', async: false })
+], DomainValidator);
+exports.DomainValidator = DomainValidator;
+//# sourceMappingURL=domain-validator.js.map

@@ -1,0 +1,64 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PaginatorTypeImp = void 0;
+const number_1 = require("../number");
+class PaginatorTypeImp {
+    constructor(_page, _perPage) {
+        this._page = _page;
+        this._perPage = _perPage;
+    }
+    static create(page = null, perPage = null) {
+        if (page) {
+            const pageRound = new number_1.NumberTypeImp(page);
+            page = Math.round(pageRound.value);
+        }
+        if (perPage) {
+            const perPageRound = new number_1.NumberTypeImp(perPage);
+            perPage = Math.round(perPageRound.value);
+        }
+        return new PaginatorTypeImp(new number_1.NumberTypeImp(page), new number_1.NumberTypeImp(perPage));
+    }
+    static empty() {
+        return PaginatorTypeImp.create(null, null);
+    }
+    get page() {
+        return this._page;
+    }
+    get perPage() {
+        return this._perPage;
+    }
+    isEmpty() {
+        return this._page.isNull && this._perPage.isNull;
+    }
+    isValid() {
+        if (this.isEmpty()) {
+            return false;
+        }
+        else {
+            if (null !== this.page.value && this.page.value <= 0) {
+                return false;
+            }
+            if (null !== this.perPage.value && this.perPage.value <= 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    validatorMessage() {
+        let message;
+        if (this.isEmpty()) {
+            message = 'is required.';
+        }
+        else {
+            if (null !== this.page.value && this.page.value <= 0) {
+                message = 'page must be positive.';
+            }
+            if (null !== this.perPage.value && this.perPage.value <= 0) {
+                message = 'perPage must be positive.';
+            }
+        }
+        return message;
+    }
+}
+exports.PaginatorTypeImp = PaginatorTypeImp;
+//# sourceMappingURL=paginator-type.imp.js.map

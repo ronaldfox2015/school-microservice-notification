@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AggregateRoot = void 0;
+class AggregateRoot {
+    constructor() {
+        this.domainEvents = [];
+    }
+    record(event) {
+        this.domainEvents.push(event);
+    }
+    pullDomainEvents() {
+        const events = [...this.domainEvents];
+        this.domainEvents = [];
+        return events;
+    }
+}
+exports.AggregateRoot = AggregateRoot;
+//# sourceMappingURL=aggregate-root.js.map

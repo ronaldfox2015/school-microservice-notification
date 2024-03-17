@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FilterOpStr = void 0;
+var FilterOpStr;
+(function (FilterOpStr) {
+    FilterOpStr["LESS_THAN"] = "<";
+    FilterOpStr["LESS_THAN_OR_EQUAL_TO"] = "<=";
+    FilterOpStr["EQUAL_TO"] = "==";
+    FilterOpStr["GREATER_THAN"] = ">";
+    FilterOpStr["GREATER_THAN_OR_EQUAL_TO"] = ">=";
+    FilterOpStr["NOT_EQUAL_TO"] = "!=";
+    FilterOpStr["ARRAY_CONTAINS"] = "array-contains";
+    FilterOpStr["ARRAY_CONTAINS_ANY"] = "array-contains-any";
+    FilterOpStr["IN"] = "in";
+    FilterOpStr["NOT_IN"] = "not-in";
+})(FilterOpStr = exports.FilterOpStr || (exports.FilterOpStr = {}));
+//# sourceMappingURL=filter.js.map

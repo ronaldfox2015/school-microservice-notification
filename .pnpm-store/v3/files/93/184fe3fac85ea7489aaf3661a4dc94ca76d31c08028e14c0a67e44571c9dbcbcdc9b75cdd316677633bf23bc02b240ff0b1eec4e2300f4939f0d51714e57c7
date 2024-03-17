@@ -1,0 +1,4 @@
+import { ArrayType } from './array-type';
+export declare class ArrayTypeString extends ArrayType<string> {
+    protected itemValidator(item: any): boolean;
+}

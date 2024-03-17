@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NumberValidator = void 0;
+class NumberValidator {
+    static isValid(item) {
+        return typeof item === 'number' || item instanceof Number;
+    }
+}
+exports.NumberValidator = NumberValidator;
+//# sourceMappingURL=number.validator.js.map

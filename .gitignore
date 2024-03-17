@@ -1,18 +1,12 @@
 # compiled output
-app/test-report/
-app/test-unit-report/*
-app/test-infrastructure-report/*
-app/dist
-app/node_modules
-.aws/
-app/pnpm-lock.yaml
-app/.pnpm-store
+/dist
+/node_modules
 
 # Logs
-app/.cache
 logs
 *.log
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
@@ -39,17 +33,3 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-junit.xml
-html-report
-documentation
-.idea
-coverage
-
-deploy/jenkins.private.yml
-app/jest_html_reporters.html
-
-# Config
-app/.env
-# Scanning
-.scannerwork

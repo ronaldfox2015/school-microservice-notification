@@ -1,0 +1,25 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AbstractType = void 0;
+class AbstractType {
+    constructor(value = null) {
+        this._value = this.filter(value);
+    }
+    get value() {
+        return this._value;
+    }
+    get isNull() {
+        return this._value === null;
+    }
+    get isNotNull() {
+        return !this.isNull;
+    }
+    isValid() {
+        return true;
+    }
+    validatorMessage() {
+        return 'value ($value) is not valid.';
+    }
+}
+exports.AbstractType = AbstractType;
+//# sourceMappingURL=abstract-type.js.map

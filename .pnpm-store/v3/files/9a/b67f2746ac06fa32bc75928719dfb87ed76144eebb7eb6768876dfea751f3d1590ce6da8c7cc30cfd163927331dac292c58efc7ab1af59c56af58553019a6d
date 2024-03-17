@@ -1,0 +1,14 @@
+import { NumberTypeImp } from '../number';
+import { ValidatorInterface } from '../../validator';
+export declare class PaginatorTypeImp implements ValidatorInterface {
+    private _page;
+    private _perPage;
+    constructor(_page: NumberTypeImp, _perPage: NumberTypeImp);
+    static create(page?: number | null, perPage?: number | null): PaginatorTypeImp;
+    static empty(): PaginatorTypeImp;
+    get page(): NumberTypeImp;
+    get perPage(): NumberTypeImp;
+    isEmpty(): boolean;
+    isValid(): boolean;
+    validatorMessage(): string;
+}

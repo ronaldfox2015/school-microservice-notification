@@ -1,0 +1,29 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EnumType = void 0;
+const abstract_type_1 = require("../abstract-type");
+class EnumType extends abstract_type_1.AbstractType {
+    constructor(value) {
+        super(value);
+    }
+    get toString() {
+        if (this.isNull) {
+            return '';
+        }
+        return `${this.value}`;
+    }
+    filter(value) {
+        return value;
+    }
+    static create(value, entries) {
+        if (value === null) {
+            return null;
+        }
+        if (entries.filter((v) => v === value).length === 0) {
+            throw new Error(`value ${value} is not in Enum.`);
+        }
+        return value;
+    }
+}
+exports.EnumType = EnumType;
+//# sourceMappingURL=enum-type.js.map

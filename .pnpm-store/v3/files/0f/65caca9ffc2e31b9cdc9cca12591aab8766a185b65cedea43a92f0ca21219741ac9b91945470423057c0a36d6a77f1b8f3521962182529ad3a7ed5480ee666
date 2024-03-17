@@ -1,0 +1,6 @@
+import { AbstractType, ValueTypeNullable } from '../abstract-type';
+export declare abstract class DateType extends AbstractType<ValueTypeNullable<Date>> {
+    constructor(value?: any);
+    protected filter(value: any): Date | null;
+    get toString(): string;
+}

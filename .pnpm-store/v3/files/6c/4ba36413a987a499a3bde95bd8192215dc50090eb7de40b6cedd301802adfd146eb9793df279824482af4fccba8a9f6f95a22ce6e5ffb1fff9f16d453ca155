@@ -1,0 +1,7 @@
+import { AggregateRoot } from '../aggregate';
+import { PrimitiveAggregate } from '../primitives/types/primitive-aggregate';
+import { ClassConstructor } from 'class-transformer/types/interfaces';
+export declare abstract class EventBase {
+    abstract eventName(): string;
+}
+export declare function aggregateToEvent<E extends EventBase, T extends AggregateRoot>(clsEvent: ClassConstructor<E>, aggregatePrimitives: PrimitiveAggregate<T>): E;

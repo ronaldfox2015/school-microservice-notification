@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NumberType = void 0;
+const abstract_type_1 = require("../abstract-type");
+class NumberType extends abstract_type_1.AbstractType {
+    get toString() {
+        if (this.isNull) {
+            return '';
+        }
+        return `${this.value}`;
+    }
+    filter(value) {
+        if (value === null) {
+            return null;
+        }
+        const number = Number(value);
+        return isNaN(number) ? 0 : number.valueOf();
+    }
+}
+exports.NumberType = NumberType;
+//# sourceMappingURL=number-type.js.map

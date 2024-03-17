@@ -1,0 +1,73 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderTypeImp = void 0;
+const string_1 = require("../string");
+var OrderDirection;
+(function (OrderDirection) {
+    OrderDirection["ASC"] = "asc";
+    OrderDirection["DESC"] = "desc";
+})(OrderDirection || (OrderDirection = {}));
+class OrderTypeImp {
+    constructor(_field, _direction) {
+        this._field = _field;
+        this._direction = _direction;
+    }
+    static create(field = null, direction = null) {
+        return new OrderTypeImp(new string_1.StringTypeImp(field), new string_1.StringTypeImp(direction));
+    }
+    static empty() {
+        return OrderTypeImp.create(null, null);
+    }
+    get field() {
+        return this._field;
+    }
+    get direction() {
+        return this._direction;
+    }
+    isEmpty() {
+        return this._field.isNull && this._direction.isNull;
+    }
+    validDirection() {
+        if (this._direction.value === OrderDirection.ASC || this._direction.value === OrderDirection.DESC) {
+            return true;
+        }
+        return false;
+    }
+    isValid() {
+        if (this.isEmpty()) {
+            return false;
+        }
+        else {
+            if (this.field.isEmpty) {
+                return false;
+            }
+            if (this.direction.isEmpty) {
+                return false;
+            }
+            if (!this.validDirection()) {
+                return false;
+            }
+        }
+        return true;
+    }
+    validatorMessage() {
+        let message;
+        if (this.isEmpty()) {
+            message = 'is required.';
+        }
+        else {
+            if (this.field.isEmpty) {
+                message = 'field is required.';
+            }
+            if (this.direction.isEmpty) {
+                message = 'direction is required.';
+            }
+            else if (!this.validDirection()) {
+                message = 'direction is not valid value.';
+            }
+        }
+        return message;
+    }
+}
+exports.OrderTypeImp = OrderTypeImp;
+//# sourceMappingURL=order-type.imp.js.map

@@ -1,0 +1,6 @@
+import { EventBase } from '../event';
+export declare abstract class AggregateRoot {
+    private domainEvents;
+    protected record<T extends EventBase>(event: T): void;
+    pullDomainEvents(): EventBase[];
+}

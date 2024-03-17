@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.aggregateToEvent = exports.EventBase = void 0;
+const class_transformer_1 = require("class-transformer");
+class EventBase {
+}
+exports.EventBase = EventBase;
+function aggregateToEvent(clsEvent, aggregatePrimitives) {
+    return (0, class_transformer_1.plainToInstance)(clsEvent, aggregatePrimitives);
+}
+exports.aggregateToEvent = aggregateToEvent;
+//# sourceMappingURL=event-base.js.map

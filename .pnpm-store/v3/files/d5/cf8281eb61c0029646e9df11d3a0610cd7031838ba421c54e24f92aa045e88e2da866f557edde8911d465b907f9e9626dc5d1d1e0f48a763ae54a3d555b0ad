@@ -1,0 +1,37 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BooleanRequiredType = exports.BooleanType = void 0;
+const abstract_type_1 = require("../abstract-type");
+class BooleanType extends abstract_type_1.AbstractType {
+    get toString() {
+        if (this.isNull) {
+            return '';
+        }
+        return this.value ? 'true' : 'false';
+    }
+    filter(value) {
+        if (value === null) {
+            return null;
+        }
+        if (typeof value === 'string') {
+            if (value === 'false') {
+                return false;
+            }
+            if (value === 'true') {
+                return true;
+            }
+        }
+        return !!value;
+    }
+}
+exports.BooleanType = BooleanType;
+class BooleanRequiredType extends BooleanType {
+    filter(value) {
+        if (value === null) {
+            throw new Error(`is required.`);
+        }
+        return super.filter(value);
+    }
+}
+exports.BooleanRequiredType = BooleanRequiredType;
+//# sourceMappingURL=boolean-type.js.map

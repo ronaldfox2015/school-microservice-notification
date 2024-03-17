@@ -1,0 +1,4 @@
+import { DateType } from './';
+export declare class DateTypeImp extends DateType {
+    static create(value?: any): DateTypeImp;
+}

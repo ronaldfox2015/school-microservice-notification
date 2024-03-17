@@ -1,0 +1,7 @@
+import { PrimitiveAggregate } from '../../types/primitive-aggregate';
+import { AggregateRoot } from '../../../aggregate';
+export interface PropertieToPrimitive<T extends AggregateRoot> {
+    toPrimitives(): PrimitiveAggregate<T>;
+}
+export declare function instanceToPrimitives<T extends AggregateRoot>(aggregate: T): PrimitiveAggregate<T>;
+export declare function getAllPropertiesFromInstanceClass(obj: any): string[];

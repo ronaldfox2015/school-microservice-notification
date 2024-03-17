@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.IdType = void 0;
+const uuid_1 = require("../uuid/");
+class IdType extends uuid_1.UuidType {
+    filter(value) {
+        if (value === null) {
+            throw new Error(`is required.`);
+        }
+        return super.filter(value);
+    }
+}
+exports.IdType = IdType;
+//# sourceMappingURL=id-type.js.map

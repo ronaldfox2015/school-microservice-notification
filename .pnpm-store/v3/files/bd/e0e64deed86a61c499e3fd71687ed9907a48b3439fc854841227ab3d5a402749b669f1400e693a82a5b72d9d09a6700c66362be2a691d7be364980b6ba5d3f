@@ -1,0 +1,26 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ArrayType = void 0;
+const class_validator_1 = require("class-validator");
+const abstract_type_1 = require("../abstract-type");
+class ArrayType extends abstract_type_1.AbstractType {
+    get toString() {
+        return this.value ? this.value.toString() : '';
+    }
+    filter(value) {
+        if (!value) {
+            return null;
+        }
+        if (!(0, class_validator_1.isArray)(value)) {
+            throw new Error(`value ${value} is not a Array.`);
+        }
+        value.forEach((item) => {
+            if (!this.itemValidator(item)) {
+                throw new Error(`${item} is not valid value in array.`);
+            }
+        });
+        return value;
+    }
+}
+exports.ArrayType = ArrayType;
+//# sourceMappingURL=array-type.js.map

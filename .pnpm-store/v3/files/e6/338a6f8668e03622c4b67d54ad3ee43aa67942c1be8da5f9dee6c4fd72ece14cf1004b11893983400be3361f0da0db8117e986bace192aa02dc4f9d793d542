@@ -1,0 +1,8 @@
+import { AggregateRoot } from './aggregate-root';
+import { PrimitiveAggregate } from '../primitives/types/primitive-aggregate';
+import { EventBase } from '../event';
+import { ClassConstructor } from 'class-transformer/types/interfaces';
+export declare abstract class Aggregate<T extends AggregateRoot> extends AggregateRoot {
+    toPrimitives(): PrimitiveAggregate<Aggregate<T>>;
+    recordBy<E extends EventBase>(clsEvent: ClassConstructor<E>): void;
+}

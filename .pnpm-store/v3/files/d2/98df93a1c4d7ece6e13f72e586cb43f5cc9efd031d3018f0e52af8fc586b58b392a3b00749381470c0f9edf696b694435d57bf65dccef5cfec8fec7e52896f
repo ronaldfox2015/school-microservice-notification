@@ -1,0 +1,3 @@
+import { UuidType } from './';
+export declare class UuidTypeImp extends UuidType {
+}

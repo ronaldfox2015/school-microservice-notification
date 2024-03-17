@@ -1,0 +1,5 @@
+import { BooleanRequiredType, BooleanType } from './';
+export declare class BooleanTypeImp extends BooleanType {
+}
+export declare class BooleanRequiredTypeImp extends BooleanRequiredType {
+}

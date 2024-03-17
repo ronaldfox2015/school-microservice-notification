@@ -1,0 +1,4 @@
+import { ArrayType } from './array-type';
+export declare class ArrayTypeNumber extends ArrayType<number> {
+    protected itemValidator(item: any): boolean;
+}

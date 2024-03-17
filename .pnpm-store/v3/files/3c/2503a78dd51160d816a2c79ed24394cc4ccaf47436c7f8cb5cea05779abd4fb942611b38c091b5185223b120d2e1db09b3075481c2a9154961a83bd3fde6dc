@@ -1,0 +1,8 @@
+import { AbstractType, ValueTypeNullable } from '../abstract-type';
+import { PrimitiveTypes } from '../../primitives/types/primitive-aggregate';
+export declare abstract class EnumType<T> extends AbstractType<ValueTypeNullable<T>> {
+    constructor(value: T | null);
+    get toString(): string;
+    protected filter(value: T | null): T | null;
+    static create<PT>(value: PrimitiveTypes | PT, entries: PrimitiveTypes[]): PT | null;
+}

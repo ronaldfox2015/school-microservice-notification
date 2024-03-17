@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ArrayTypeString = void 0;
+const array_type_1 = require("./array-type");
+const validator_1 = require("../../validator");
+class ArrayTypeString extends array_type_1.ArrayType {
+    itemValidator(item) {
+        return validator_1.StringValidator.isValid(item);
+    }
+}
+exports.ArrayTypeString = ArrayTypeString;
+//# sourceMappingURL=array-type-string.js.map

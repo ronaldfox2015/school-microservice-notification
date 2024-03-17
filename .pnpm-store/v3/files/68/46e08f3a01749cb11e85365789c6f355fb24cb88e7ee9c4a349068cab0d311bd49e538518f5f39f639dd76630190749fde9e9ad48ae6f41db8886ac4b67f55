@@ -1,0 +1,6 @@
+import { AbstractType, ValueTypeNullable } from '../abstract-type';
+export declare abstract class ArrayType<T> extends AbstractType<ValueTypeNullable<Array<T>>> {
+    get toString(): string;
+    protected filter(value: any): Array<T> | null;
+    protected abstract itemValidator(item: any): boolean;
+}

@@ -1,0 +1,33 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DateType = void 0;
+const dayjs = require("dayjs");
+const utc = require("dayjs/plugin/utc");
+const abstract_type_1 = require("../abstract-type");
+dayjs.extend(utc);
+class DateType extends abstract_type_1.AbstractType {
+    constructor(value = null) {
+        super(value);
+    }
+    filter(value) {
+        if (value === null) {
+            return null;
+        }
+        if (typeof value === 'boolean' || typeof value === 'number') {
+            throw new Error(`date is not valid.`);
+        }
+        const _dateAux = dayjs.utc(value);
+        if (!_dateAux.isValid()) {
+            throw new Error(`date is not valid.`);
+        }
+        return new Date(_dateAux.toISOString());
+    }
+    get toString() {
+        if (this.isNull) {
+            return '';
+        }
+        return this.value.toISOString();
+    }
+}
+exports.DateType = DateType;
+//# sourceMappingURL=date-type.js.map

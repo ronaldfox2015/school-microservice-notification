@@ -1,0 +1,41 @@
+{
+  "name": "winston-dashboard",
+  "version": "1.0.12",
+  "description": "React Based Log Browser",
+  "main": "src/index.js",
+  "scripts": {
+    "dev":
+      "concurrently \"nodemon test.js\" \"cd src/front-end && parcel index.html --public-url /\"",
+    "build": "cd src/front-end && parcel build index.html --public-url /",
+    "publish": "npm run build",
+    "test": "./"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "bootstrap": "^4.0.0",
+    "browserslist": "^3.2.0",
+    "express": "^4.16.3",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "reactstrap": "^5.0.0-beta.2",
+    "rxjs": "^5.5.7",
+    "winston": "^2.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "moment": "^2.21.0",
+    "node-sass": "^4.7.2"
+  },
+  "peerDependencies": {
+    "winston": "^2.4.1"
+  },
+  "files": ["src/**/*.js", "src/**/*.css", "src/**/*.html"]
+}

@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Aggregate = void 0;
+const aggregate_root_1 = require("./aggregate-root");
+const transform_to_primitives_1 = require("../primitives/transform/to/transform-to-primitives");
+const event_1 = require("../event");
+class Aggregate extends aggregate_root_1.AggregateRoot {
+    toPrimitives() {
+        return (0, transform_to_primitives_1.instanceToPrimitives)(this);
+    }
+    recordBy(clsEvent) {
+        this.record((0, event_1.aggregateToEvent)(clsEvent, this.toPrimitives()));
+    }
+}
+exports.Aggregate = Aggregate;
+//# sourceMappingURL=aggregate.js.map

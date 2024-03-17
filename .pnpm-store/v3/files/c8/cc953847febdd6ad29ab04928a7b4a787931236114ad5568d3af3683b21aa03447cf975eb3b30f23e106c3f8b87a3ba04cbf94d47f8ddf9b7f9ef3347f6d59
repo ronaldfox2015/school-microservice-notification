@@ -1,0 +1,14 @@
+import { ValidatorInterface } from '../validator';
+export type ValueTypeNullable<T> = T | null;
+export type ValueTypeRequired<T> = T;
+export declare abstract class AbstractType<T> implements ValidatorInterface {
+    protected _value: T;
+    constructor(value?: any);
+    get value(): T;
+    get isNull(): boolean;
+    get isNotNull(): boolean;
+    isValid(): boolean;
+    validatorMessage(): string;
+    abstract get toString(): string;
+    protected abstract filter(value: any): T;
+}

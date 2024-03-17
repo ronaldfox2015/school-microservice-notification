@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.IdTypeImp = void 0;
+const _1 = require("./");
+class IdTypeImp extends _1.IdType {
+}
+exports.IdTypeImp = IdTypeImp;
+//# sourceMappingURL=id-type.imp.js.map
