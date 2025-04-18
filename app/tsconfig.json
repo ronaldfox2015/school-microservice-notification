@@ -21,7 +21,6 @@
     "strict": true,
     "esModuleInterop": true,
     "strictPropertyInitialization": false,
-    "suppressImplicitAnyIndexErrors": true,
     "paths": {
       "@/*": ["*"],
       "@app/*": ["../src/app/*"],
