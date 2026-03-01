@@ -2,9 +2,6 @@
   "name": "Notification",
   "version": "0.0.2",
   "description": "",
-  "engines": {
-    "node": "22.x"
-  },
   "author": "",
   "private": true,
   "license": "UNLICENSED",
