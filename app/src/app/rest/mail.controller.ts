@@ -1,13 +1,12 @@
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
-import { MailOptionsInput } from '@src/app/input/mail-options.input';
-import { ApiTags } from '@nestjs/swagger';
-import { MailSendService } from '@src/context/mail/application/service/persist/mail.send.service';
-import { MailOptionsDto } from '@src/context/mail/application/dto/mail-options.dto';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common'
+import { MailOptionsInput } from '@src/app/input/mail-options.input'
+import { ApiTags } from '@nestjs/swagger'
+import { MailSendService } from '@src/context/mail/application/service/persist/mail.send.service'
+import { type MailOptionsDto } from '@src/context/mail/application/dto/mail-options.dto'
 
 @ApiTags('Notification')
 @Controller()
 export class MailController {
-
   constructor (
     private readonly mailSendService: MailSendService
   ) {}

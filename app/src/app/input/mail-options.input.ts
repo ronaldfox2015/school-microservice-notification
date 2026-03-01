@@ -1,15 +1,15 @@
-import { IsOptional, IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator'
 
 export class MailOptionsInput {
   @IsString()
-  to: string
+    to: string
 
   @IsString()
-  subject: string
+    subject: string
 
   @IsString()
-  templateName: string
+    templateName: string
 
   @IsOptional()
-  data: object[]
+    data: object[]
 }
