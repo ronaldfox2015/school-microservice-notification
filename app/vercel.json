@@ -1,14 +1,14 @@
 {
     "version": 2,
     "functions": {
-        "dist/main.js": {
-            "runtime": "nodejs24.x"
+        "src/main.ts": {
+            "runtime": "nodejs22.x"
         }
     },
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "dist/main.js"
+            "dest": "src/main.ts"
         }
     ]
 }
