@@ -1,0 +1,26 @@
+parameters:
+    env(YOUTUBE_API_KEY): ''
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Notification/Domain/Model/'
+            - '../src/Dto/'
+            - '../src/Kernel.php'
+
+    # Aliases for DDD Repositories
+    App\Notification\Domain\Repository\MailRepositoryInterface:
+        alias: App\Notification\Infrastructure\Repository\SymfonyMailerRepository
+
+    App\Notification\Domain\Repository\YoutubeRepositoryInterface:
+        alias: App\Notification\Infrastructure\Repository\GoogleYoutubeRepository
+
+    # Specific configuration for GoogleYoutubeRepository
+    App\Notification\Infrastructure\Repository\GoogleYoutubeRepository:
+        arguments:
+            $youtubeApiKey: '%env(resolve:YOUTUBE_API_KEY)%'

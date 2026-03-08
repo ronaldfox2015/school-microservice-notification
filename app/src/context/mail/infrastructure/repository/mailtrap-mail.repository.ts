@@ -7,7 +7,7 @@ import nodemailer from 'nodemailer'
 @Injectable()
 export class MailTrapMailRepository implements MailRepository {
   private readonly transporter: any
-  constructor (private readonly config: ConfigService) {
+  constructor(private readonly config: ConfigService) {
     this.transporter = nodemailer.createTransport({
       host: config.get('HOST_MAIL'),
       port: Number(config.get('HOST_MAIL_PORT')),
@@ -20,7 +20,7 @@ export class MailTrapMailRepository implements MailRepository {
     })
   }
 
-  async send (mailOptions: MailModel): Promise<void> {
+  async send(mailOptions: MailModel): Promise<void> {
     try {
       await this.transporter.sendMail(Object.assign(mailOptions), (error, info) => {
         console.log(info)

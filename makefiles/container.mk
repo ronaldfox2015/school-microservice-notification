@@ -14,9 +14,9 @@ MODE			= image
 IMAGE_DEPLOY_DEV = $(PROJECT_NAME):$(ENV)
 
 
-build:##@Global Build project : make build MODE=image, make build MODE=build-dist
+build:##@Global Build project : make build MODE=image TYPE=dev, make build MODE=build-dist
 ifeq ($(MODE), image)
-	docker build --build-arg UID=$(USER_ID) --build-arg GID=$(GROUP_ID) -f docker/dev/Dockerfile --no-cache -t $(IMAGE_BUILD)  ./docker
+	docker build --build-arg UID=$(USER_ID) --build-arg GID=$(GROUP_ID) -f docker/${TYPE}/Dockerfile --no-cache -t ${TYPE}-$(IMAGE_BUILD)  ./docker
 endif
 ifeq ($(MODE), build-dist)
 	@docker container run --workdir "/${APP_DIR}" --rm -i \
@@ -25,6 +25,12 @@ ifeq ($(MODE), build-dist)
 		yarn build
 	@ls -l ${PWD}/${APP_DIR}/dist
 endif
+
+install-php: ##@Global install dependencies via composer
+	@docker container run --user root --workdir "/app-php" --rm -i \
+		-v "${PWD}/app-php":/app-php \
+		php-school-dev-notification:dev \
+		composer install
 
 install: ##@Global install dependencies : make install YARN_ENVIRONMENT="nodemailer @types/nodemailer"
 	@docker container run --workdir "/${APP_DIR}" --rm -i \
@@ -43,6 +49,12 @@ up: ##@Local Start the project
 up-doc: ##@Local Start the project
 	export SERVICE_NAME="$(SERVICE_NAME)doc" && IMAGE_DEV="$(IMAGE_DEPLOY_DEV)" && PROJECT_NAME="$(PROJECT_NAME)" && PATH_SERVICE="local.statistic-documentation.com" && NETWORK=${NETWORK} \
 		docker-compose -p $(SERVICE_NAME)doc up -d frontend
+
+up-php: ##@Local Start the PHP project
+	docker-compose -f docker-compose-php.yml up -d
+
+down-php: ##@Local Destroy the PHP project
+	docker-compose -f docker-compose-php.yml down
 
 down: ##@Local Destroy the project
 	docker rm -f $(CONTAINER_NAME)
